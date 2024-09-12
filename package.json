@@ -14,7 +14,7 @@
     "typescript"
   ],
   "author": "Wekoslav Stefanovski",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/sweko/wts-typescript/issues"
   },
