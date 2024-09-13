@@ -20,6 +20,20 @@ This presentation is suitable for both experienced TypeScript developers and cur
 
 Just run `npm install` and you're good to go!
 
+## Examples
+
+The `working` directory contains a series of examples that demonstrate the concepts discussed in the presentation. Each example is self-contained and can be examined independently. Note that since the examples are designed to be illustrative, they may not be production-ready or runnable.
+
+The `live` directory contains the code that was live-coded during the presentation. This code is a bit stream-of-consciousness and may not be as polished as the examples in the `working` directory.
+
+### Basics Example
+
+The basics example demonstrates some fundamental TypeScript concepts, such as type inference, type annotations, and type assertions.
+
+### Omit Example
+
+The omit example demonstrates how to create a utility type that omits specific properties from an object type. It displays type system features like generics, mapped types, conditional types, and the `keyof` operator.
+
 ## License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
