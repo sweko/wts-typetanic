@@ -1,15 +1,6 @@
-type Pick<T, K extends keyof T> = {
-    [P in K]: T[P];
-};
 
-
-type Omit<T, K extends keyof T> = {
-    //[P in keyof T]: P extends K ? never : T[P];
-    [P in keyof T as P extends K ? never : P]: T[P];
-}
-
-declare function omit<T, K extends keyof T>(object: T, key: K): Omit<T, K>;
-declare function pick<T, K extends keyof T>(object: T, ...keys: K[]): Pick<T, K>;
+declare function omit(object: any, key: string): any;
+declare function pick(object: any, ...keys: string[]): any;
 
 const weko = {
     firstName: 'Wekoslav',
@@ -33,5 +24,6 @@ console.log(nameOnly);
 
 //@ts-expect-error
 const wekoRestricted = pick(weko, 'car', 'yacht'); // Compile error
+
 
 export {}

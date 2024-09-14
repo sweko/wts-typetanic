@@ -39,3 +39,5 @@ doSomethingWithUrl("ftp://invalid-scheme.com"); // Compile error
 
 // @ts-expect-error
 doSomethingWithUrl("https://valid-domain.com/invalid<path>"); // Compile error
+
+export {}

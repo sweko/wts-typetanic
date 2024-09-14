@@ -27,15 +27,7 @@ const tree: BinaryTreeNode = {
     }
 };
 
-// type DeepReadonly<T> = {
-//     readonly [P in keyof T]: T[P] extends object ? DeepReadonly<T[P]> : T[P];
-// };
-
-type DeepReadonly<T> = T extends object ? {
-    readonly [P in keyof T]: DeepReadonly<T[P]>;
-} : T;
-
-const readonlyTree: DeepReadonly<BinaryTreeNode> = tree;
+const readonlyTree = tree;
 
 // @ts-expect-error
 readonlyTree.name = "new root"; // Error
@@ -44,25 +36,3 @@ if (readonlyTree.left) {
     // @ts-expect-error
     readonlyTree.left.name = "new left child"; // Error
 }
-
-type DeepPropertyType<T, P> = P extends `${infer Key}.${infer Rest}`
-    ? Key extends keyof T
-        ? DeepPropertyType<T[Key], Rest>
-        : never
-    : P extends keyof T
-        ? T[P]
-        : never;
-
-// Usage
-type NestedObj = {
-    a: {
-        b: {
-            c: string;
-        };
-    };
-};
-
-type ResultType = DeepPropertyType<NestedObj, "a.b.c">; // string
-
-
-export {}
