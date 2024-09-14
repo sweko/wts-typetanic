@@ -1,3 +1,4 @@
+
 const person = {
     firstName: 'Wekoslav',
     lastName: 'Stefanovski',
@@ -5,11 +6,16 @@ const person = {
     email: "swekster@gmail.com"
 };
 
-declare function signalize<T>(object: T): any;
+type Signalized<T> = {
+    [P in keyof T]: () => T[P];
+} & {
+    [P in keyof T as `set${Capitalize<P> & string}`]: (value: T[P]) => void;
+};
+
+
+declare function signalize<T>(object: T): Signalized<T>;
 
 const signalizedPerson = signalize(person);
-
-// signalizedPerson.... // Hover over signalizedPerson to see the inferred type and properties
 
 declare function observable<T>(object: T): any;
 
